@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Поздравление сестренки</title>
+<!-- Подключение шрифтов и анимаций -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  body {
+    background: linear-gradient(135deg, #ffe4e1, #fff0f5);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5em;
+    color: #d2691e;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-align: center;
+    margin-bottom: 20px;
+    animation: bounceInDown 1s ease;
+  }
+
+  #greeting {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 1.8em;
+    line-height: 1.5;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    animation: fadeInUp 1s ease;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity:1;
+      transform:none;
+    }
+  }
+
+  #image-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:30px;
+    animation: fadeInUp2 1s ease;
+}
+
+@keyframes fadeInUp2 {
+   from {opacity:0; transform:translateY(50px);}
+   to {opacity:1; transform:none;}
+}
+
+#images {
+   display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:1000px; margin:auto
+}
+#images img {
+   width:auto; max-width:200px; border-radius:10px; box-shadow:
+   inset -4px -4px 8px rgba(255,255,255,0.6),
+   inset 4px 4px 8px rgba(0,0,0,0.2),
+   4px 4px 12px rgba(0,0,0,0.3);
+   transition:.3s all ease
+}
+#images img:hover {transform : scale(1.05);}
+
+button {
+   display:block; margin:auto; padding:15px 30px; font-size:1.2em; border:none; border-radius:10px; background:#d2691e; color:#fff; cursor:pointer; box-shadow:
+   inset -4px -4px 8px rgba(255,255,255,0.6),
+   inset 4px 4px 8px rgba(0,0,0,0.2),
+   inset -2px -2px 5px rgba(255,255,255,.7),
+   inset -2px -2px 5px rgba(255,255,255,.7);
+   transition:.3s all ease
+}
+button:hover {background:#b35814;}
+
+#music-control {
+   display:flex; justify-content:center; align-items:center; margin-top:-10px
+}
+#music-control button {
+   background:#444; color:#fff; padding:.5em .8em; border-radius:.5em; margin:auto .3em
+}
+
+/* Новая надпись внизу сайта с фиолетовым цветом */
+#love-note {
+   font-family:'Great Vibes', cursive;
+   font-size:2.5em;
+   color:#800080; /* Фиолетовый цвет */
+   text-align:center;
+   margin-top:-10px;
+   padding-top:20px;
+   animation:pulseGlow infinite alternate ease-in-out;
+}
+
+/* Анимация пульсации */
+@keyframes pulseGlow {
+   from {text-shadow:none;}
+   to {text-shadow:
+       0 0 10px #800080,
+       0 0 20px #800080,
+       inset -2px -2px #fff,
+       inset 2px 2px #fff;}
+}
+</style>
+</head>
+<body>
+
+<h1> С Днем Рождения!</h1>
+
+<div id="greeting">
+<p>Дорогая сестра! Сегодня твой особенный день — день рождения! Пусть он будет наполнен радостью и теплом.</p>
+<p>Желаю тебе крепкого здоровья и неиссякаемого счастья! Пусть все мечты сбываются легко и красиво.</p>
+<p>Ты — самая замечательная сестра на свете! Пусть в твоей жизни всегда будет место для улыбок и приятных сюрпризов.</p>
+<p>Пусть каждый новый день приносит тебе вдохновение и новые возможности!</p>
+</div>
+
+<div id="image-container">
+<div id="images"></div>
+</div>
+
+<div style="text-align:center;">
+<button id="changeBtn">Показать другую поздравляшку</button>
+</div>
+
+<!-- Музыка управление -->
+<div id="music-control">
+  <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
+<button id="music-toggle">🔊 Отключить музыку</button>
+</div>
+
+<!-- Надпись в самом низу сайта -->
+<div id="love-note">Я тебя очень очень очень люблю,<br>ты самая лучшая сестренка на свете</div>
+
+<script>
+// Массив поздравлений и картинок
+const greetings = [
+{
+text:"Пусть твоя жизнь будет яркой и насыщенной! Желаю тебе море улыбок и океан любви!",
+images:[
+"alena1.jpg",
+"alena2.jpg",
+]
+},
+{
+text:"Пусть каждый день приносит тебе радость и вдохновение!",
+images:[
+"alena4.jpg",
+"alena3.jpg",
+]
+},
+{
+text:"Пусть в твоей жизни всегда будет место для чудес! Счастья тебе безмерного!",
+images:[
+"alena5.jpg",
+"alena6.jpg",
+]
+}
+];
+
+const imagesContainer = document.getElementById('images');
+const greetingDiv = document.getElementById('greeting');
+const changeBtn = document.getElementById('changeBtn');
+
+let currentIndex = Math.floor(Math.random() * greetings.length);
+
+// Функция для обновления поздравления и картинок
+function updateGreeting() {
+	const greeting = greetings[currentIndex];
+	// Обновляем текст
+	greetingDiv.innerHTML = `<p>${greeting.text}</p>`;
+
+	// Обновляем картинки
+	imagesContainer.innerHTML = '';
+	const imgs = greeting.images;
+
+	// Добавляем случайный набор картинок из массива (можно выбрать случайные или все)
+	for (let i = Math.floor(Math.random() * imgs.length); i < imgs.length + Math.floor(Math.random() * imgs.length); i++) {
+		const idx = i % imgs.length;
+		const img = document.createElement('img');
+		img.src = imgs[idx];
+		img.alt = "Праздничная картинка";
+		imagesContainer.appendChild(img);
+	}
+
+	// Выбираем следующий индекс (чтобы не повторялось подряд)
+	currentIndex = (currentIndex + Math.floor(Math.random() * (greetings.length -1)) +1) % greetings.length ;
+}
+
+// Изначально показываем поздравление
+updateGreeting();
+
+// Обработчик кнопки смены поздравления
+changeBtn.addEventListener('click', () => {
+	updateGreeting();
+});
+
+// Музыка управление
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-toggle');
+
+music.volume = .5;
+
+musicBtn.addEventListener('click', () => {
+	if (!music.paused) {
+		music.pause();
+		musicBtn.textContent='🔇 Включить музыку';
+	} else {
+		music.play();
+		musicBtn.textContent='🔊 Отключить музыку';
+	}
+});
+</script>
+
+</body>
+</html>
